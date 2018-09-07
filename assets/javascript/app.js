@@ -2,17 +2,19 @@
 // GLOBAL VARIABLES AND ARRAYS
 // ==============================================================================
 // Array of gif buttons
-var gifButtons = ['Tiger Woods', 'Lebron James', 'Aaron Judge', 'Michael Jordan', 'Lewis Hamilton', 'Phil Mickelson', 'Bryce Harper'];
+var gifButtons = ['Tiger Woods', 'Lebron James', 'Aaron Judge', 'Odell Beckham', 'Serena Williams'];
 
 // FUNCTIONS
 // ==============================================================================
 // Function to display gif and info
 function displayGif() {
+    // Remove any gifs that have previously been loaded
+    $('#gifs-view').empty();
     // Retrieve the value of data-name that is associated with each button
     var gif = $(this).attr("data-name");
         // Build url using Giphy API documentation
         // Set the limit parameter to 10 and the rating paramter to 'g'
-        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + gif + '&limit=10&rating=g&api_key=6aBA6hxDJKQttqlFkPei1tttwWWjxv2p';
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + gif + '&limit=10&rating=g&rating=pg&api_key=6aBA6hxDJKQttqlFkPei1tttwWWjxv2p';
         console.log(queryURL);
 
         // Create AJAX call for the specific gif button being clicked
@@ -66,5 +68,5 @@ $('#add-gif').on('click', function() {
 
 // MAIN
 // ==============================================================================
-$(document).on('click', ".gif", displayGif);
+$(document).on('click', '.gif', displayGif);
 renderButtons();
