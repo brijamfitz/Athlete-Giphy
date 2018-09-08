@@ -2,7 +2,7 @@
 // GLOBAL VARIABLES AND ARRAYS
 // ==============================================================================
 // Array of gif buttons
-var gifButtons = ['Tiger Woods', 'Lebron James', 'Aaron Judge', 'Odell Beckham', 'Serena Williams'];
+var gifButtons = ['Tiger Woods', 'Lebron James', 'Aaron Judge', 'Odell Beckham', 'Serena Williams', 'Tony Hawk'];
 
 // FUNCTIONS
 // ==============================================================================
@@ -11,31 +11,62 @@ function displayGif() {
     // Remove any gifs that have previously been loaded
     $('#gifs-view').empty();
     // Retrieve the value of data-name that is associated with each button
-    var gif = $(this).attr("data-name");
-        // Build url using Giphy API documentation
-        // Set the limit parameter to 10 and the rating paramter to 'g'
-        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + gif + '&limit=10&rating=g&rating=pg&api_key=6aBA6hxDJKQttqlFkPei1tttwWWjxv2p';
-        console.log(queryURL);
-
-        // Create AJAX call for the specific gif button being clicked
-        $.ajax({
-          url: queryURL,
-          method: 'GET'
-        }).then(function(response) {
-            console.log(response);
-            // Loop through JSON and retrieve the rating and gif url for all 10 results
-            for (var i = 0; i < response.data.length; i++) {
-                // Create a div
-                var gifDiv = $('<div>');
-                // Append the rating
-                gifDiv.append('<p>Rating: ' + response.data[i].rating + '</p>');
-                // Append the gif url
-                gifDiv.append('<img src=' + response.data[i].images.fixed_width.url + '>');
-                // Attach to gifs-view id and display in dom
-                $('#gifs-view').prepend(gifDiv);
-            }
-        });
+    var gif = $(this).attr('data-name');
+    // Build url using Giphy API documentation
+    // Set the limit parameter to 10 and the rating parameter to 'g'
+    var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + gif + '&limit=10&rating=g&api_key=6aBA6hxDJKQttqlFkPei1tttwWWjxv2p';
+    console.log(queryURL);
+    // Create AJAX call for the specific gif button being clicked
+    $.ajax({
+        url: queryURL,
+        method: 'GET'
+    }).then(function(response) {
+        console.log(response);
+        // Loop through JSON and retrieve the rating and gif url for all 10 results
+        for (var i = 0; i < response.data.length; i++) {
+            // Create div element
+            var gifDiv = $('<div>');
+            // Append the rating
+            gifDiv.html('<p>Rating: ' + response.data[i].rating + '</p>');
+            // Create img element
+            var gifImg = $('<img>');
+            // Add src attr to hold still img url
+            gifImg.attr('src', response.data[i].images.fixed_height.url);
+            // Add data-still attr to hold still img url
+            gifImg.attr('data-still', response.data[i].images.fixed_height_still.url);
+            // Add data-animate attr to hold moving img url
+            gifImg.attr('data-animate', response.data[i].images.fixed_height.url);
+            // Add data-state attr to toggle between still and animate
+            gifImg.attr('data-state', 'animate');
+            // Add a gif class
+            gifImg.addClass('gif');              
+            // Attach the rating and img elements to gifs-view id and display in dom
+            $('#gifs-view').prepend(gifDiv, gifImg);
+        }    
+    });    
 }
+
+// Function to toggle between still and animate states when user clicks on gif image
+$('.gif').on('click', function() {
+    // Retrieve the value that is currently stored in the data-state attr
+    var state = $(this).attr('data-state');
+    console.log(state);
+    // If/else statements to toggle between still and animate states
+    // If the current state is 'still' - change the values to animate upon click
+    if (state === 'still') {
+        // Toggle the src attr to the animate url
+        $(this).attr('src', $(this).attr('data-animate'))
+        // Toggle the data-state attr to animate
+        $(this).attr('data-state', 'animate')
+    }
+    // If the current state is 'animate' - change the values back to still upon click
+    else if (state === 'animate') {
+        // Toggle the src attr to the still url
+        $(this).attr('src', $(this).attr('data-still'))
+        // Toggle the data-state attr to still
+        $(this).attr('data-state', 'still');
+    }   
+})
 
 // Function to create and display array of buttons to dom
 function renderButtons() {
@@ -62,7 +93,7 @@ $('#add-gif').on('click', function() {
     event.preventDefault();
     // Retrieve the value of the user input
     var gifInput = $('#gif-input').val().trim();
-    // Add that string to my array of buttons
+    // Add the user input to my array of buttons
     gifButtons.push(gifInput);
     // Call renderButtons function to add this button to the dom
     renderButtons();
