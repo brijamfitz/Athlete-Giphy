@@ -26,7 +26,7 @@ function renderButtons() {
 }
 
 // Function to add a gif button when the add gif button is clicked
-$('#add-gif').on('click', function() {
+$('#add-gif').on('click', function(event) {
     // This function will stop the entire page from refreshing
     event.preventDefault();
     // Retrieve the value of the user input

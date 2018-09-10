@@ -2,8 +2,8 @@ body {
     background: url('../images/background.jpg');
     font-family: 'Russo One', sans-serif;
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-    color: navy;
-    padding: 0 auto;
+    color: royalblue;
+    padding: 20px;
     margin: 0 auto;
 }
 h1 {
@@ -23,7 +23,7 @@ button {
     padding: 10px;
     margin: 10px;
     color: white;
-    background-color: navy;
+    background-color: royalblue;
 }
 #gif-form {
     text-align: center;
@@ -32,7 +32,7 @@ button {
 }
 #add-gif {
     padding: 5px 10px 5px 10px;
-    color: navy;
+    color: royalblue;
     background-color: white;
 }
 p {
