@@ -7,26 +7,42 @@
     <title>Athlete Giphy</title>
 
     <!-- CSS links -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">  
+    <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">  
 
 </head>
 <body>
 
+
     <div class="container">
-
-        <div id="buttons-view"></div>
-
-        <form id="gif-form">
-            <label for="gif-input">Add an Athlete!</label>
-            <input type="text" id="gif-input"><br>
-        
-            <!-- Button triggers new gif to be added -->
-            <input id="add-gif" type="submit" value="Add an Athlete!">
-        </form>
-
-        <div id="gifs-view"></div>
-
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Athlete Giphy</h1>
+                <h2>Click a button to see some gifs!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="buttons-view"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form id="gif-form">
+                    <label for="gif-input">Add an Athlete!</label>
+                    <input type="text" id="gif-input">     
+                    <!-- Button triggers new gif to be added -->
+                    <input id="add-gif" type="submit" value="Add">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="gifs-view"></div>
+            </div>
+        </div>
     </div>
 
     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
