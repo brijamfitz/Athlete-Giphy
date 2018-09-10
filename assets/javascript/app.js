@@ -2,7 +2,7 @@
 // GLOBAL VARIABLES AND ARRAYS
 // ==============================================================================
 // Array of gif buttons
-var gifButtons = ['Tiger Woods', 'Lebron James', 'Aaron Judge', 'Odell Beckham', 'Serena Williams', 'Tony Hawk', 'Michael Jordan', 'Wayne Gretzky'];
+var gifButtons = ['Tiger Woods', 'Lebron James', 'Aaron Judge', 'Odell Beckham', 'Serena Williams', 'Tony Hawk'];
 
 // FUNCTIONS
 // ==============================================================================
