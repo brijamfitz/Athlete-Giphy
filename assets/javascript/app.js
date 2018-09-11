@@ -58,9 +58,9 @@ function displayGif() {
         // Loop through JSON and retrieve the rating and gif url for all 10 results
         for (var i = 0; i < response.data.length; i++) {
             // Create div element
-            var gifDiv = $('<div>');
+            var gifSpan = $('<span>');
             // Append the rating
-            gifDiv.html('<p>Rating: ' + response.data[i].rating + '</p>');
+            gifSpan.append('<p>Rating: ' + response.data[i].rating + '</p>');
             // Create img element
             var gifImg = $('<img>');
             // Add src attr to hold still img url
@@ -72,9 +72,11 @@ function displayGif() {
             // Add data-state attr to toggle between still and animate
             gifImg.attr('data-state', 'animate');
             // Add a gif class
-            gifImg.attr('id', 'gif');              
+            gifImg.attr('id', 'gif');
+            // Append image
+            gifSpan.append(gifImg);              
             // Attach the rating and img elements to gifs-view id and display in dom
-            $('#gifs-view').prepend(gifDiv, gifImg);
+            $('#gifs-view').prepend(gifSpan);
         }    
     });    
 }
