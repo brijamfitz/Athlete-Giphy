@@ -25,6 +25,9 @@ button {
     color: white;
     background-color: royalblue;
 }
+#buttons-view {
+    text-align: center;
+}
 #gif-form {
     text-align: center;
     padding: 10px;
