@@ -35,13 +35,16 @@ button {
 }
 #add-gif {
     padding: 5px 10px 5px 10px;
+    margin: 5px;
     color: royalblue;
     background-color: white;
 }
 p {
-    padding: 10px 10px 10px 0px;
+    padding: 5px 5px 5px 0px;
+    color: green;
 }
 span {
     float: left;
     margin-right: 40px;
+    margin-bottom: 40px;
 }

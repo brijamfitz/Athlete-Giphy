@@ -59,7 +59,8 @@ function displayGif() {
         for (var i = 0; i < response.data.length; i++) {
             // Create div element
             var gifSpan = $('<span>');
-            // Append the rating
+            // Append gif metadata
+            gifSpan.append('<p>Title: ' + response.data[i].title + '</p>')
             gifSpan.append('<p>Rating: ' + response.data[i].rating + '</p>');
             // Create img element
             var gifImg = $('<img>');
@@ -73,7 +74,7 @@ function displayGif() {
             gifImg.attr('data-state', 'animate');
             // Add a gif class
             gifImg.attr('id', 'gif');
-            // Append image
+            // Append image to span element
             gifSpan.append(gifImg);              
             // Attach the rating and img elements to gifs-view id and display in dom
             $('#gifs-view').prepend(gifSpan);
