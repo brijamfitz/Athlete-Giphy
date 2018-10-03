@@ -1,7 +1,5 @@
-# giphy-api
+# Athlete Giphy
 
-The app functions as described in the assignment instructions.
+Click on an athlete to fire up some of their best gifs!
 
-Bonus items included:
---Mobile responsive
---Additional metadata (title)
+Add an athlete of your choice to see some of their gifs!
